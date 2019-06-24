@@ -16,3 +16,6 @@ class BasePage(object):
         except NoSuchElementException:
             return False
         return True
+
+    def current_url_contains(self, substring):
+        return substring in self.browser.current_url
