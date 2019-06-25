@@ -1,6 +1,7 @@
-import pytest
 import random
 import string
+
+import pytest
 
 from pages.cart_page import CartPage
 from pages.login_page import LoginPage
@@ -13,6 +14,17 @@ def test_guest_should_see_login_link_on_product_page(browser):
     page.should_be_login_link()
 
 
+@pytest.mark.need_review
+def test_guest_can_add_product_to_cart(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    page = open_product_page(browser, link)
+    page.add_product_to_basket()
+    page.solve_quiz_and_get_code()
+    page.success_message_contains_product_name(page.get_product_name())
+    page.basket_contains_costs(page.get_product_price())
+
+
+@pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = open_product_page(browser, link)
@@ -21,6 +33,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     login_page.should_be_login_page()
 
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_cart_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = open_product_page(browser, link)
@@ -43,6 +56,7 @@ class TestUserAddToCartFromProductPage(object):
                                      randomString(10))
         page.should_be_authorized_user()
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_cart(self, browser):
         page = open_product_page(browser, self.link)
         page.add_product_to_basket()
