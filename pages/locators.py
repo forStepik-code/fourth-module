@@ -3,7 +3,12 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators(object):
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET = (By.CSS_SELECTOR, ".basket-mini .btn-default")
+
+
+class CartPageLocators(object):
+    ITEMS_LIST = (By.CSS_SELECTOR, "#content_inner")
+    ITEM = (By.CSS_SELECTOR, ".basket-items")
 
 
 class LoginPageLocators(object):
@@ -17,4 +22,3 @@ class ProductPageLocators(object):
     BASKET_SUM = (By.CSS_SELECTOR, ".basket-mini")
     PRODUCT_NAME = (By.XPATH, "//div[@class='col-sm-6 product_main']/h1")
     PRICE = (By.XPATH, "//div[@class='col-sm-6 product_main']/p")
-
