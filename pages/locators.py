@@ -14,6 +14,10 @@ class CartPageLocators(object):
 class LoginPageLocators(object):
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    REG_EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
+    REG_PASSWORD1 = (By.CSS_SELECTOR, "#id_registration-password1")
+    REG_PASSWORD2 = (By.CSS_SELECTOR, "#id_registration-password2")
+    REG_BUTTON = (By.NAME, "registration_submit")
 
 
 class ProductPageLocators(object):
